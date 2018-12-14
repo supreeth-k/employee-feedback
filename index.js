@@ -21,56 +21,65 @@ app.use('/libs', express.static(path.join(__dirname, '/libs')));
 app.use('/html', express.static(path.join(__dirname, '/html')));
 app.use('/img', express.static(path.join(__dirname, '/img')));
 
+var empAction;
+
 app.get('/', function(req,res) {
 		res.render('initQuestion');
 });
 
-// app.get('/employeeDetails', function(req, res, next) {
-// 	res.render('employeeDetails');
-// });
+app.get('/employeeDetails', function(req, res, next) {
+	res.render('employeeDetails');
+});
+
 
 app.get('/employeeDetails/:id', function(req, res, next) {
-	res.render('employeeDetails', {action:'evalEmpDetails(this);'});
+	empAction = req.params.id;
+	console.log(empAction);
+	res.render('employeeDetails');
 });
 
-// app.get('/employeeDetails', function(req, res, next) {
-// 	res.render('employeeDetails');
-// });
+app.post('/insertTitle',function(req, res, next) {
+	console.log(req.body.title);
 
+	 fs.appendFile(req.body.empID+'.txt', req.body.title + ':' + '\n \n', function (err) {
+  		if (err) throw err;
+  		console.log('Title is appended successfully.');
+ }); 
 
-app.get('/trans', function(req, res, next) {
-	console.log(req.params);
-	res.send('transparency');
 });
 
-app.get('/transparency', function(req, res, next) {
+
+app.post('/individualSummary',function(req, res, next) {
+	console.log(req.body.header);
+	console.log(req.body.val);
+
+	 fs.appendFile(req.body.empID+'.txt', req.body.header + ': ' + req.body.val + '\n', function (err) {
+  		if (err) throw err;
+  		console.log('File is created and data is appended successfully.');
+ }); 
+
+});
+
+app.post('/newLine',function(req, res, next) {
+
+	 fs.appendFile(req.body.empID+'.txt', '\n \n', function (err) {
+  		if (err) throw err;
+  		console.log('New line is appended successfully.');
+ }); 
+
+});
+
+app.post('/summary',function(req, res, next) {
+
 	console.log(req.body);
-	res.render('transparency');
+
+	 fs.writeFile(req.body.empID+'.json', JSON.stringify(req.body), function (err) {
+  		if (err) throw err;
+  		console.log('File is created successfully.');
+ }); 
+
+    res.send('abc');
 });
-
-// app.post('/individualSummary',function(req, res, next) {
-// 	console.log(req.body.header);
-// 	console.log(req.body.val);
-
-// 	 fs.appendFile(req.body.empID+'.json', req.body.header + ': ' + req.body.val + '\n', function (err) {
-//   		if (err) throw err;
-//   		console.log('File is created and data is appended successfully.');
-//  }); 
-
-//     res.send('abc');
-// });
-
-// app.post('/summary',function(req, res, next) {
-
-// 	console.log(req.body);
-
-// 	 fs.writeFile(req.body.empID+'.json', JSON.stringify(req.body), function (err) {
-//   		if (err) throw err;
-//   		console.log('File is created successfully.');
-//  }); 
-
-//     res.send('abc');
-// });
 
 
 app.listen(3000);

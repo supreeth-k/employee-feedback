@@ -11,6 +11,8 @@ window.respektCalc = function() {
     }
     respektQs.push(val);
 
+    storeScore(i,val,'Respect');
+
     $("#q" + i).replaceWith($('#q' + (i + 1)));
     i++;
 

@@ -1,7 +1,5 @@
-$(function() {
-$("#answerRadios").click(function() {
+window.evalEmpDetails = function() {
 
-    alert("asnser answerRadios")
 
     var empName = $("#empName").val();
     var empId = $("#empId").val();
@@ -21,8 +19,6 @@ $("#answerRadios").click(function() {
         manager_mail: manager_mail,
         doj: doj
     }
-
-
 
     if (empDetails.empName == "") {
         alert("Please enter the Employee Name");
@@ -47,8 +43,6 @@ $("#answerRadios").click(function() {
         return;
     } else {
         localStorage.setItem('empDetails', JSON.stringify(empDetails));
-        //displayPage('teamAndCollab')
+        displayPage('teamAndCollab')
     }
-})
-
-});
+}

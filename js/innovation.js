@@ -11,6 +11,8 @@ window.innovationCalc = function() {
     }
     innovationQs.push(val);
 
+    storeScore(i,val,'Innovation');
+
     $("#q" + i).replaceWith($('#q' + (i + 1)));
     i++;
 

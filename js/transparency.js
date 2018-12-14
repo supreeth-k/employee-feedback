@@ -1,6 +1,7 @@
 var i = 1;
 var qLength;
 var transparencyQs = [];
+var header;
 window.transparencyCalc = function() {
     qLength = $("#q" + i).children('.queriesRow').length;
     var formQuery;
@@ -10,6 +11,8 @@ window.transparencyCalc = function() {
         val = val + parseFloat($(formQuery).children().find('input[type=radio]:checked').val());
     }
     transparencyQs.push(val);
+
+    storeScore(i,val,'Transparency');
 
     $("#q" + i).replaceWith($('#q' + (i + 1)));
     i++;

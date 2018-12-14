@@ -13,6 +13,8 @@ window.deliveryCalc = function() {
 
     deliveryQs.push(val);
 
+    storeScore(i,val,'Delivering Excellence');
+
     $("#q" + i).replaceWith($('#q' + (i + 1)));
 
     i++;

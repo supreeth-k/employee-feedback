@@ -22,7 +22,7 @@
     <div class="container">
 
         <div class="queryCont" id="q1">
-            <h4 class="queryHeader"> Active Listening </h4>
+            <h4 class="queryHeader" style="display: block;"> Active Listening </h4>
             <div class="row queriesRow">
                 <div class="offset-md-2">
                     <h5 class="secondLevelQuery"> Listens intently with calm body language </h5>
@@ -110,7 +110,7 @@
 
     <div class="additionalDiv" style="display: none;">
         <div class="queryCont" id="q2">
-            <h4 class="queryHeader">Empathy for Others </h4>
+            <h4 class="queryHeader" style="display: none;">Empathy for Others </h4>
             <div class="row queriesRow">
                 <div class="offset-md-2">
                     <h5 class="secondLevelQuery"> Positive thinker </h5>
@@ -188,7 +188,7 @@
             </div>
         </div>
         <div class="queryCont" id="q3">
-            <h4 class="queryHeader">Pro-active communicator </h4>
+            <h4 class="queryHeader" style="display: none;">Pro-active communicator </h4>
             <div class="row queriesRow">
                 <div class="offset-md-2">
                     <h5 class="secondLevelQuery"> Extends cross team conversation</h5>
@@ -241,7 +241,7 @@
             </div>
         </div>
         <div class="queryCont" id="q4">
-            <h4 class="queryHeader">Tranparency in communication</h4>
+            <h4 class="queryHeader" style="display: none";>Tranparency in communication</h4>
             <div class="row queriesRow">
                 <div class="offset-md-2">
                     <h5 class="secondLevelQuery"> Communicates without ambiguity </h5>
@@ -304,9 +304,9 @@
 <script>
     $(function() {
 
-        $("#nav-placeholder").load('/html/feedback.html', function() {
+        $("#nav-placeholder").load('feedback.html', function() {
 
-            $(".butn-teamAndCollab").load('/html/button.html', function() {
+            $(".butn-teamAndCollab").load('button.html', function() {
                 $("#answerRadios").attr('onclick', 'transparencyCalc(this);');
             });
 
