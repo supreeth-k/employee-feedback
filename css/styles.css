@@ -195,3 +195,27 @@ label.form-check-label.queriesInitQ {
 #initQueries {
     width: 20%;
 }
+
+.subEmpId {
+    display: none;
+}
+
+.subIdDesc {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+
+input[name = "subEmpId"]:focus,
+input[name = "subEmpId"]:active {
+    outline:none;
+}
+
+
+.input-subEmpId{
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 2px solid #808080;
+}

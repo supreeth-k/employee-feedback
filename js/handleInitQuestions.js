@@ -1,11 +1,11 @@
 $(function() {
 
-    $('input[type=radio][name=bedStatus]').change(function() {
+    $('input[type=radio][name=initRadioButton]').change(function() {
         if (this.value == 'evalSub') {
-         $("#selfEmpId").css('display', 'block');
+         $(".subEmpId").css('display', 'block');
         }
         else {
-            $("#selfEmpId").css('display', 'none');
+            $(".subEmpId").css('display', 'none');
         }
     });
 
