@@ -1,0 +1,132 @@
+<html>
+
+<head>
+    <script src="/libs/jquery-3.3.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="nav-placeholder">
+
+    </div>
+
+    <table id="customers">
+        <tr>
+            <th>Value</th>
+            <th>Behavioural Summary</th>
+        </tr>
+        <tr>
+            <td>Teamwork and collaboration</td>
+            <td id="teamAndCollab"></td>
+        </tr>
+        <tr>
+            <td> Transparency </td>
+            <td id="transparency"></td>
+        </tr>
+        <tr>
+            <td>Innovation </td>
+            <td id="innovation"></td>
+        </tr>
+        <tr>
+            <td>Respect for others </td>
+            <td id="respekt"></td>
+        </tr>
+        <tr>
+            <td>Delivering Excellence </td>
+            <td id="delivery"></td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
+
+<script>
+
+    $(function() {
+
+
+        var transparencyScore = parseFloat(localStorage.getItem('transparencyScore'));
+        var teamAndCollabScore = parseFloat(localStorage.getItem('teamAndCollabScore'));
+        var deliveryScore = parseFloat(localStorage.getItem('deliveryScore'));      
+        var innovationScore = parseFloat(localStorage.getItem('innovationScore'));
+        var respektScore = parseFloat(localStorage.getItem('respektScore'));
+
+        $("#nav-placeholder").load('feedback.html', function() {
+            if ($(".nav-item").hasClass('active')) {
+                $(".nav-item").removeClass('active');
+                $(".nav-item").addClass('disabled');
+            }
+            $("#summary").removeClass('disabled');
+            $("#summary").parents().addClass('active');
+        });
+
+
+
+        if (55 > teamAndCollabScore && teamAndCollabScore > 45) {
+            $("#teamAndCollab").html('Excellent');
+        } else if (45 > teamAndCollabScore && teamAndCollabScore > 38) {
+            $("#teamAndCollab").html('Moderate');
+        } else if (teamAndCollabScore < 38) {
+            $("#teamAndCollab").html('Needs Improvement');
+        }
+
+        if (50 >= transparencyScore && transparencyScore > 40) {
+            $("#transparency").html('Excellent');
+        } else if (40 > transparencyScore && transparencyScore > 35) {
+            $("#transparency").html('Moderate');
+        } else if (transparencyScore < 35) {
+            $("#transparency").html('Needs Improvement');
+        }
+
+        if (50 >= innovationScore && innovationScore > 42) {
+            $("#innovation").html('Excellent');
+        } else if (45 > innovationScore && innovationScore > 38) {
+            $("#innovation").html('Moderate');
+        } else if (innovationScore < 38) {
+            $("#innovation").html('Needs Improvement');
+        }
+
+        if (35 >= respektScore && respektScore > 30) {
+            $("#respekt").html('Excellent');
+        } else if (30 > respektScore && respektScore > 24) {
+            $("#respekt").html('Moderate');
+        } else if (respektScore < 24) {
+            $("#respekt").html('Needs Improvement');
+        }
+
+        if (35 >= deliveryScore && deliveryScore > 30) {
+            $("#delivery").html('Excellent');
+        } else if (30 > deliveryScore && deliveryScore > 24) {
+            $("#delivery").html('Moderate');
+        } else if (deliveryScore < 24) {
+            $("#delivery").html('Needs Improvement');
+        }
+
+        var empDetails = JSON.parse(localStorage.getItem('empDetails'));
+
+        var scores = {
+            'empID':empDetails.empId,
+            'transparencyScore':transparencyScore,
+            'teamAndCollabScore':teamAndCollabScore,
+            'deliveryScore':deliveryScore,
+            'innovationScore':innovationScore,
+            'respektScore':respektScore
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: window.location.origin+'/summary',
+            contentType: "application/json;charset=utf-8",
+            data:JSON.stringify(scores),
+           
+            success: function(res){
+                console.log(res);
+            },
+            error:function(err) {
+                console.log(err);
+            }   
+        });
+    });
+    
+</script>

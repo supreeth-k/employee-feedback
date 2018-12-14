@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="/libs/jquery-3.3.1.min.js"></script>
+    <script src="/libs/popper.min.js"></script>
+    <link rel="stylesheet" href="/libs/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="/libs/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/handleInitQuestions.js"></script>
+    <script type="text/javascript" src="../js/empDetails.js"></script>
+	<title>Active AI Employee Feedback Portal</title>
+</head>
+<body>
+
+	 <div class="container initQuestion">
+	 	<div class="heading">
+        		<h3 class="employeeFeedback"> Welcome to Active AI Employee Feedback Portal</h3>
+            	<h3 class="detailsHeader"> Please enter the following details</h3>
+           </div>
+           <div class="initQs offset-md-2">
+           <div class="row initRowQs">
+           	<div class="col-xs-8">
+           		<div class="form-queries">
+	            <input class="form-check-input initRadio" type="radio" name="initRadioButton" id="radio1" value="evalSelf" checked>
+	            <label class="form-check-label queriesInitQ" for="evalSelf">
+	               Are you evaluating yourself?
+	            </label>
+	        </div>
+           </div>
+          </div>
+         <div class="row initRowQs">
+           	<div class="col-xs-8">
+	        <div class="form-queries">
+	            <input class="form-check-input initRadio" type="radio" name="initRadioButton" id="radio2" value="evalSub" >
+	            <label class="form-check-label queriesInitQ" for="evalSub">
+	               Are you evaluating a subordinate?
+	                </label>
+	        	</div>
+	        </div>
+           </div>
+          </div>
+          <div class="initButton">
+   				 <div class="col-xs-6"><button type="button" id="initQueries" class="btn btn-primary btn-lg">Start
+   				 </button>
+    </div>
+  </div>
+    </div>
+
+</body>
+</html>

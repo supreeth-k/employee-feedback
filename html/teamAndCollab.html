@@ -1,0 +1,347 @@
+<html>
+
+<head>
+    <script src="/libs/jquery-3.3.1.min.js"></script>
+    <script src="/libs/popper.min.js"></script>
+    <link rel="stylesheet" href="/libs/bootstrap.min.css">
+    <script src="/libs/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/respekt.js"></script>
+    <script src="/js/delivery.js"></script>
+    <script src="/js/innovation.js"></script>
+    <script src="/js/teamAndCollab.js"></script>
+    <script src="/js/transparency.js"></script>
+    <script src="/js/genericFunctions.js"></script>
+</head>
+
+<body class="teamAndCollab">
+    <div id="nav-placeholder">
+
+    </div>
+
+    <div class="container">
+
+        <div class="queryCont" id="q1">
+            <h4 class="queryHeader" style="display: block;"> Willingness to Help Others</h4>
+            <div class="row queriesRow">
+                <div class="offset-md-2">
+                    <h5 class="secondLevelQuery"> Jumps in to help other members who are struggling or are new team members. </h5>
+                    <div class="offset-md-1">
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-1" id="radio1" value="5" checked>
+                            <label class="form-check-label queries" for="queryRadios1">
+                                Displays the behaviour in action consistently and visibly 
+                            </label>
+                        </div>
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-1" id="radio2" value="3" checked>
+                            <label class="form-check-label queries" for="queryRadios2">
+                                Displays the behaviour in action more than 70% of the time and visibly 
+                                </label>
+                        </div>
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-1" id="radio3" value="1" checked>
+                            <label class="form-check-label queries" for="queryRadios3">
+                                Lacks the behaviour in action almost always and visibly
+                                </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row queriesRow">
+                <div class="offset-md-2">
+                    <h5 class="secondLevelQuery"> Helps others learn from his/her own experiences </h5>
+                    <div class="offset-md-1">
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-2" id="radio1" value="5" checked>
+                            <label class="form-check-label queries" for="queryRadios1">
+                                    Displays the behaviour in action consistently and visibly 
+                                </label>
+                        </div>
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-2" id="radio2" value="3" checked>
+                            <label class="form-check-label queries" for="queryRadios2">
+                                    Displays the behaviour in action more than 70% of the time and visibly 
+                                    </label>
+                        </div>
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-2" id="radio3" value="1" checked>
+                            <label class="form-check-label queries" for="queryRadios3">
+                                    Lacks the behaviour in action almost always and visibly
+                                    </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row butn-teamAndCollab">
+            <!-- <div class="offset-md-3">
+                <div class="col-xs-6"><button type="button" id="answerRadios" class="btn btn-primary btn-lg" onclick="teamAndCollab(this)">Next</button>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="additionalDiv" style="display: none;">
+        <div class="queryCont" id="q2" >
+            <h4 class="queryHeader" style="display: none;"> Committed to Team's Success</h4>
+            <div class="row queriesRow">
+                <div class="offset-md-2">
+                    <h5 class="secondLevelQuery"> Available at all times to the team at large in order to achieve excellence at the task </h5>
+                    <div class="offset-md-1">
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-3" id="radio1" value="5" checked>
+                            <label class="form-check-label queries" for="queryRadios1">
+                                                Displays the behaviour in action consistently and visibly 
+                                            </label>
+                        </div>
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-3" id="radio2" value="3" checked>
+                            <label class="form-check-label queries" for="queryRadios2">
+                                                Displays the behaviour in action more than 70% of the time and visibly 
+                                                </label>
+                        </div>
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-3" id="radio3" value="1" checked>
+                            <label class="form-check-label queries" for="queryRadios3">
+                                                Lacks the behaviour in action almost always and visibly
+                                                </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row queriesRow">
+                <div class="offset-md-2">
+                    <h5 class="secondLevelQuery"> Goes the extra mile to achieve the team goal </h5>
+                    <div class="offset-md-1">
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-4" id="radio1" value="5" checked>
+                            <label class="form-check-label queries" for="queryRadios1">
+                                                    Displays the behaviour in action consistently and visibly 
+                                                </label>
+                        </div>
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-4" id="radio2" value="3" checked>
+                            <label class="form-check-label queries" for="queryRadios2">
+                                                    Displays the behaviour in action more than 70% of the time and visibly 
+                                                    </label>
+                        </div>
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-4" id="radio3" value="1" checked>
+                            <label class="form-check-label queries" for="queryRadios3">
+                                                    Lacks the behaviour in action almost always and visibly
+                                                    </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row queriesRow">
+                <div class="offset-md-2">
+                    <h5 class="secondLevelQuery"> Values members contribution to team </h5>
+                    <div class="offset-md-1">
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-5" id="radio1" value="5" checked>
+                            <label class="form-check-label queries" for="queryRadios1">
+                                                            Displays the behaviour in action consistently and visibly 
+                                                        </label>
+                        </div>
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-5" id="radio2" value="3" checked>
+                            <label class="form-check-label queries" for="queryRadios2">
+                                                            Displays the behaviour in action more than 70% of the time and visibly 
+                                                            </label>
+                        </div>
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-5" id="radio3" value="1" checked>
+                            <label class="form-check-label queries" for="queryRadios3">
+                                                            Lacks the behaviour in action almost always and visibly
+                                                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="queryCont" id="q3">
+            <h4 class="queryHeader" style="display: none;"> Adaptable </h4>
+            <div class="row queriesRow">
+                <div class="offset-md-2">
+                    <h5 class="secondLevelQuery"> Willing to learn on course </h5>
+                    <div class="offset-md-1">
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-6" id="radio1" value="5" checked>
+                            <label class="form-check-label queries" for="queryRadios1">
+                                                        Displays the behaviour in action consistently and visibly 
+                                                    </label>
+                        </div>
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-6" id="radio2" value="3" checked>
+                            <label class="form-check-label queries" for="queryRadios2">
+                                                        Displays the behaviour in action more than 70% of the time and visibly 
+                                                        </label>
+                        </div>
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-6" id="radio3" value="1" checked>
+                            <label class="form-check-label queries" for="queryRadios3">
+                                                        Lacks the behaviour in action almost always and visibly
+                                                        </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row queriesRow">
+                <div class="offset-md-2">
+                    <h5 class="secondLevelQuery">Adapts to new environment/teams easily </h5>
+                    <div class="offset-md-1">
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-7" id="radio1" value="5" checked>
+                            <label class="form-check-label queries" for="queryRadios1">
+                                                           Adapts to new environment/teams easily
+                                                        </label>
+                        </div>
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-7" id="radio2" value="3" checked>
+                            <label class="form-check-label queries" for="queryRadios2">
+                                                            Displays the behaviour in action more than 70% of the time and visibly 
+                                                            </label>
+                        </div>
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-7" id="radio3" value="1" checked>
+                            <label class="form-check-label queries" for="queryRadios3">
+                                                            Lacks the behaviour in action almost always and visibly
+                                                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row queriesRow">
+                <div class="offset-md-2">
+                    <h5 class="secondLevelQuery">Creative and resourceful when faced with new challenges </h5>
+                    <div class="offset-md-1">
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-8" id="radio1" value="5" checked>
+                            <label class="form-check-label queries" for="queryRadios1">
+                                                                    Displays the behaviour in action consistently and visibly 
+                                                                </label>
+                        </div>
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-8" id="radio2" value="3" checked>
+                            <label class="form-check-label queries" for="queryRadios2">
+                                                                    Displays the behaviour in action more than 70% of the time and visibly 
+                                                                    </label>
+                        </div>
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-8" id="radio3" value="1" checked>
+                            <label class="form-check-label queries" for="queryRadios3">
+                                                                    Lacks the behaviour in action almost always and visibly
+                                                                    </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row queriesRow">
+                <div class="offset-md-2">
+                    <h5 class="secondLevelQuery">Displays learning agility
+                        <p class="lrean"> Learning agility means learning from one situation and able to apply the learning in another situation </p>
+                    </h5>
+                    <div class="offset-md-1">
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-9" id="radio1" value="5" checked>
+                            <label class="form-check-label queries" for="queryRadios1">
+                                                                        Displays the behaviour in action consistently and visibly 
+                                                                    </label>
+                        </div>
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-9" id="radio2" value="3" checked>
+                            <label class="form-check-label queries" for="queryRadios2">
+                                                                        Displays the behaviour in action more than 70% of the time and visibly 
+                                                                        </label>
+                        </div>
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-9" id="radio3" value="1" checked>
+                            <label class="form-check-label queries" for="queryRadios3">
+                                                                        Lacks the behaviour in action almost always and visibly
+                                                                        </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="queryCont" id="q4">
+            <h4 class="queryHeader" style="display: none;"> Dependable & Reliable</h4>
+            <div class="row queriesRow">
+                <div class="offset-md-2">
+                    <h5 class="secondLevelQuery"> Consistent with Contribution </h5>
+                    <div class="offset-md-1">
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-10" id="radio1" value="5" checked>
+                            <label class="form-check-label queries" for="queryRadios1">
+                                    Displays the behaviour in action consistently and visibly 
+                                </label>
+                        </div>
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-10" id="radio2" value="3" checked>
+                            <label class="form-check-label queries" for="queryRadios2">
+                                    Displays the behaviour in action more than 70% of the time and visibly 
+                                    </label>
+                        </div>
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-10" id="radio3" value="1" checked>
+                            <label class="form-check-label queries" for="queryRadios3">
+                                    Lacks the behaviour in action almost always and visibly
+                                    </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row queriesRow">
+                <div class="offset-md-2">
+                    <h5 class="secondLevelQuery"> Takes responsibility of Her/his actions </h5>
+                    <div class="offset-md-1">
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-11" id="radio1" value="5" checked>
+                            <label class="form-check-label queries" for="queryRadios1">
+                                        Displays the behaviour in action consistently and visibly 
+                                    </label>
+                        </div>
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-11" id="radio2" value="3" checked>
+                            <label class="form-check-label queries" for="queryRadios2">
+                                        Displays the behaviour in action more than 70% of the time and visibly 
+                                        </label>
+                        </div>
+                        <div class="form-queries">
+                            <input class="form-check-input" type="radio" name="queryRadios-11" id="radio3" value="1" checked>
+                            <label class="form-check-label queries" for="queryRadios3">
+                                        Lacks the behaviour in action almost always and visibly
+                                        </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    $(function() {
+
+        $("#nav-placeholder").load('feedback.html', function() {
+            $(".butn-teamAndCollab").load('button.html', function() {
+                $("#answerRadios").attr('onclick', 'teamAndCollab(this);');
+            });
+            if ($(".nav-item").hasClass('active')) {
+                $(".nav-item").removeClass('active');
+                $(".nav-item").addClass('disabled');
+            }
+            $("#teamCollab").removeClass('disabled');
+            $("#teamCollab").parents().addClass('active');
+
+
+        });
+    });
+</script>

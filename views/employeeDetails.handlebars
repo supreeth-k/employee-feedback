@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="libs/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+    <body>
+    <div id="nav-placeholder">
+        {{>feedback}}
+    </div>
+    <div class="container">
+        <h2 class="employeeFeedback"> Welcome to Active AI Employee Feedback Portal </h2>
+            <h3 class="detailsHeader"> Please enter the following details </h3>
+            <div class="col-xs-6 offset-md-3">
+                <form id="employeeDetails" novalidate>
+                    <div class="row empN">
+                        <div class="col-xs-6">
+                            <label for="empName"> Employee Name</label>
+                        </div>
+                        <div class="col-xs-6">
+                            <input class="empName" id="empName" type="text" required="required">
+                        </div>
+                    </div>
+                    <div class="row empI">
+                        <div class="col-xs-6">
+                            <label for="empId"> Employee ID</label> </div>
+                        <div class="col-xs-6">
+                            <input class="empId" id="empId" type="text" required="required">
+                        </div>
+                    </div>
+
+                    <div class="row empMail">
+                        <div class="col-xs-6">
+                            <label for="empMailID"> Employee's Email Address</label>
+                        </div>
+                        <div class="col-xs-6">
+                            <input class="empMailID" id="empMailID" type="email" required="required">
+                        </div>
+                    </div>
+                    <div class="row desg">
+                        <div class="col-xs-6">
+                            <label for="designation"> Designation</label>
+                        </div>
+                        <div class="col-xs-6">
+                            <input class="designation" id="designation" type="text" required="required">
+                        </div>
+                    </div>
+                    <div class="row mgr">
+                        <div class="col-xs-6">
+                            <label for="manager"> Manager's Name</label>
+                        </div>
+                        <div class="col-xs-6">
+                            <input class="manager" id="manager" type="text" required="required">
+                        </div>
+                    </div>
+
+                    <div class="row mgrMail">
+                        <div class="col-xs-6">
+                            <label for="manager"> Manager's Email Address</label>
+                        </div>
+                        <div class="col-xs-6">
+                            <input class="manager-mail" id="manager-mail" type="email" required="required">
+                        </div>
+                    </div>
+                    <div class="row doJ">
+                        <div class="col-xs-6">
+                            <label class="dateLabel" for="doj"> Date of Joining</label>
+                        </div>
+                        <div class="col-xs-6">
+                            <input class="doj" id="doj" type="date" required="required">
+                        </div>
+                    </div>
+                    <div class="row butn">
+                        <div class="offset-md-3">
+                             {{>button action = action }}
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+</body>
+</html>
+

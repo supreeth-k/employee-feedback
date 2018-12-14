@@ -1,0 +1,197 @@
+.aiLogo {
+    width: 150px;
+}
+
+.nav-link {
+    color: #6c757d;
+    font-weight: bold;
+}
+
+.nav-item {
+    padding: 10px;
+}
+
+.nav-item.tab-pane {
+    color: #6c757d;
+}
+
+.nav-item.active {
+    color: #5f9ea0 !important;
+}
+
+.nav-link.disabled {
+    pointer-events: none;
+    color: #6c757d;
+}
+
+.navbar-nav.mr-auto {
+    margin-left: 35px;
+}
+
+#empName,
+#empId,
+#designation,
+#manager,
+#doj,
+#manager-mail,
+#empMailID {
+    border: none;
+    border-bottom: 2px solid rgb(158, 158, 158);
+    border-bottom-color: rgb(158, 158, 158);
+    width: 300px;
+    margin-left: 15px;
+}
+
+#empName:focus,
+#empId:focus,
+#designation:focus,
+#manager:focus,
+#doj:focus,
+#manager-mail:focus,
+#empMailID:focus {
+    outline: none;
+}
+
+label {
+    width: 200px;
+}
+
+.container {
+    margin: auto;
+    position: relative;
+    top: 5%;
+}
+
+.empN,
+.empI,
+.desg,
+.mgr,
+.doJ,
+.mgrMail,
+.empMail {
+    padding: 20px;
+}
+
+.doj {
+    margin-top: -20px;
+}
+
+
+#sumbitEmpDetails {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.butn {
+    margin-top: 40px;
+}
+
+.detailsHeader,
+.employeeFeedback {
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+label.form-check-label.queries {
+    width: 100%;
+}
+
+.form-queries {
+    padding: 5px;
+}
+
+.queryHeader {
+    padding-bottom: 10px;
+}
+
+.secondLevelQuery {
+    padding-bottom: 10px;
+}
+
+.queryCont {
+    margin-bottom: 10px;
+}
+
+.queriesRow {
+    margin-bottom: 20px;
+}
+
+.teamAndCollab {
+    overflow: scroll;
+}
+
+.lrean {
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.butn-teamAndCollab {
+    margin-bottom: 10%;
+    margin-top: 5%;
+}
+
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td,
+#customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#customers tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+    background-color: #ddd;
+}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #34495E;
+    color: white;
+    text-align: center;
+}
+.download-btn {
+    margin-top: 40px;
+}
+
+.container.initQuestion {
+    text-align: center;
+    margin-top: 5%;
+}
+
+.initRowQs {
+    width: 50%;
+    margin: 0 auto;
+}
+
+label.form-check-label.queriesInitQ {
+    width: 100%;
+}
+
+.queriesInitQ {
+    font-size: 1.5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.form-check-input.initRadio {
+    margin-top: 7px;
+    margin-right: 30px;
+}
+
+.initButton {
+    margin-top: 3%;
+}
+
+#initQueries {
+    width: 20%;
+}
