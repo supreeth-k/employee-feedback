@@ -26,6 +26,7 @@ window.deliveryCalc = function() {
         $(".butn-teamAndCollab").css('display', 'none');
 
       var userAction = JSON.parse(localStorage.getItem('userAction'));
+      console.log(userAction);
 
       if(userAction == 'evalSelf') {
          displayPage('summary');

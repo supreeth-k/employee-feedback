@@ -113,9 +113,10 @@
         }
 
         var empDetails = JSON.parse(localStorage.getItem('empDetails'));
+        var empId = empDetails?empDetails.empId:JSON.parse(localStorage.getItem('subEmpId'));
 
         var scores = {
-            'empID':empDetails.empId,
+            'empID':empId,
             'transparencyScore':transparencyScore,
             'teamAndCollabScore':teamAndCollabScore,
             'deliveryScore':deliveryScore,
@@ -125,8 +126,6 @@
 
         var userAction = JSON.parse(localStorage.getItem('userAction'));
         console.log(userAction);
-        var empId = empDetails.empId;
-
     if(userAction === 'evalSelf') {
         $.ajax({
             type: 'POST',
@@ -159,7 +158,7 @@
         });
     }
 
-            $('.reportDownload').click(function() {
+    $('.reportDownload').click(function() {
                  $.ajax({
                     type: 'GET',
                     url: window.location.origin+'/download/'+empId,
@@ -175,7 +174,7 @@
                     } 
                 });
 
-            })
+    })
                 
      
 });

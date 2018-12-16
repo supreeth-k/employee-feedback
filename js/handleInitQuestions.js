@@ -19,6 +19,8 @@ $(function() {
 
         var subEmpId = $(".input-subEmpId").val();
 
+        localStorage.setItem('subEmpId', JSON.stringify(subEmpId));
+
         var subEmpdata = {
             subEmpId:subEmpId,
             userAction:userAction
@@ -35,9 +37,15 @@ $(function() {
                     alert("Feedback has already been given for this employee!")
                     return;
                 }
+                else if(res == 'NotDone') {
+                    alert("The subordinate you're evaluating hasn't given his feedback yet. Please try later")
+                    return;
+                }
                 else location.href = location.href + 'html/teamAndCollab.html';
             },
             error:function(err) {
+                 alert("The subordinate you're evaluating hasn't given his feedback yet. Please try later");
+                 return;
                 console.log(err);
             }   
         });
@@ -56,7 +64,7 @@ $(function() {
             }   
         });
       }
-	})
+	});
 })
 
 

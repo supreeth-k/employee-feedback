@@ -10,8 +10,11 @@ window.feedBackBy = function(userAction) {
     var empDetails = JSON.parse(localStorage.getItem('empDetails'));
     var userAction = JSON.parse(localStorage.getItem('userAction'));
 
+    var empId = empDetails?empDetails.empId:JSON.parse(localStorage.getItem('subEmpId'));
+
+
     var data = {
-        empID:empDetails.empId,
+        empID:empId,
         userAction:userAction 
     }
       $.ajax({
@@ -36,12 +39,14 @@ window.storeScore = function(i,val, titleStr) {
     var header;
  	var empDetails = JSON.parse(localStorage.getItem('empDetails'));
     var userAction = JSON.parse(localStorage.getItem('userAction'));
+
+    var empId = empDetails?empDetails.empId:JSON.parse(localStorage.getItem('subEmpId'));
 	
 	if(i == 1) {
 		
    	 var titleData = {
     	title: titleStr,
-		empID:empDetails.empId,
+		empID:empId,
         userAction:userAction
 	}
 	     $.ajax({
@@ -68,7 +73,7 @@ window.storeScore = function(i,val, titleStr) {
     var data = {
         header:header,
         val:val,
-        empID:empDetails.empId,
+        empID:empId,
         userAction:userAction
     }
         $.ajax({
@@ -94,9 +99,10 @@ window.storeScore = function(i,val, titleStr) {
 window.insertNewLine = function () {
 
 	var empDetails = JSON.parse(localStorage.getItem('empDetails'));
+    var empId = empDetails?empDetails.empId:JSON.parse(localStorage.getItem('subEmpId'));
 	
    	 var data = {
-		empID:empDetails.empId
+		empID:empId
 	}
 
 	    $.ajax({
@@ -116,11 +122,9 @@ window.insertNewLine = function () {
 }
 
 window.isFeedbackGiven = function (empId) {
-
-    var empDetails = JSON.parse(localStorage.getItem('empDetails'));
     
      var data = {
-        empID:empDetails.empId
+        empID:empId
     }
 
         $.ajax({

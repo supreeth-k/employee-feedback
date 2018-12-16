@@ -2,7 +2,7 @@
 
 <head>
     <script src="/libs/jquery-3.3.1.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="/libs/popper.min.js"></script>
     <link rel="stylesheet" href="/libs/bootstrap.min.css">
     <script src="/libs/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/css/styles.css">
@@ -108,8 +108,10 @@
 
         var empDetails = JSON.parse(localStorage.getItem('empDetails'));
 
+        var empId = empDetails?empDetails.empId:JSON.parse(localStorage.getItem('subEmpId'));
+
         var scores = {
-            'empID':empDetails.empId,
+            'empID':empId,
             'transparencyScore':transparencyScore,
             'teamAndCollabScore':teamAndCollabScore,
             'deliveryScore':deliveryScore,

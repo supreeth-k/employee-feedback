@@ -2,7 +2,7 @@ var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
-
+var concat = require('concat-files');
 var fs = require('fs');
 
 var exphbs  = require('express-handlebars');
@@ -51,33 +51,10 @@ app.get('/employeeDetails/:id', function(req, res, next) {
 	res.render('employeeDetails');
 });
 
-app.post('/feedbackBy', function(req, res, next) {
-  empAction = req.body.userAction;
-  empId = req.body.empID;
-
-console.log(empId);
-
-  if(empAction == 'evalSelf') {
-
-    fs.appendFile(__dirname+'/reports/'+req.body.empID+'.txt', 'Feedback of the employee \n', function (err) {
-      if (err) throw err;
-        console.log('Header is appended successfully.');
-     }); 
-  }
-
-  else if(empAction == 'evalSub') {
-
-      fs.appendFile('/reports/'+req.body.empID+'_manager.txt', "Feedback of the employee's _manager", + '\n', function (err) {
-      if (err) throw err;
-      console.log('Header is appended successfully.');
-    }); 
-  }
-});
-
-
 app.post('/isFeedbackGiven', function(req, res, next) {
 
 	var empId = req.body.empID;
+  console.log(empId);
 	 
 	var stmt = "select emp_self from feedback_status where empId = ?";
 	var stmt1 = "update feedback_status set emp_self = ? where empId = ?";
@@ -92,7 +69,7 @@ app.post('/isFeedbackGiven', function(req, res, next) {
             		console.log(empId, loggedIn);
             });
            }
-            else if (results[0].emp_self === 1) {
+             if (results[0].emp_self === 1) {
             	res.send('Error');
             }
     	});
@@ -111,13 +88,21 @@ app.post('/employeeDetails', function(req, res, next) {
               console.log(results[0].emp_self, 'results[0].emp_self');
               console.log(results[0].emp_mgr, 'results[0].emp_mgr');
               connection.query(stmt1,[loggedIn,subEmpId], function(error, result, fields) {
-                console.log(result);
+                //console.log(result);
                 res.send('abc');
-                console.log(subEmpId, loggedIn);
+                //console.log(subEmpId, loggedIn);
             });
            }
             else if (results[0].emp_mgr === 1) {
+              //console.log(results[0].emp_mgr);
               res.send('Error');
+            }
+             else if (results[0].emp_self === 0) {
+              //console.log(results[0].emp_self);
+              res.send('NotDone');
+            }
+            else if(error) {
+              console.log(error);
             }
       });
 });
@@ -125,8 +110,8 @@ app.post('/employeeDetails', function(req, res, next) {
 app.post('/insertTitle',function(req, res, next) {
 	console.log(req.body.title);
   if(req.body.userAction == 'evalSelf') {
-
-      fs.appendFile(__dirname+'/reports/'+req.body.empID+'.txt', req.body.title + ':' + '\n \n', function (err) {
+    console.log(__dirname);
+      fs.appendFile(__dirname+'/reports/'+req.body.empID+'.txt','\n \n' + req.body.title + ':' + '\n \n', function (err) {
       if (err) throw err;
       console.log('Title is appended successfully.');
   }); 
@@ -134,7 +119,9 @@ app.post('/insertTitle',function(req, res, next) {
 }
   else if(req.body.userAction == 'evalSub') {
 
-        fs.appendFile(__dirname+'/reports/'+req.body.empID+'_manager.txt', req.body.title + ':' + '\n \n', function (err) {
+      console.log(req.body.empID, 'insertTitle');
+
+        fs.appendFile(__dirname+'/reports/'+req.body.empID+'_manager.txt','\n \n' + req.body.title + ':' + '\n \n', function (err) {
         if (err) throw err;
         console.log('Title is appended successfully.');
     }); 
@@ -157,7 +144,7 @@ app.post('/individualSummary',function(req, res, next) {
 
   else if (req.body.userAction == 'evalSub') {
 
-      fs.appendFile(__dirname+'/reports/'+req.body.empID+'_manager.txt', req.body.header + ': ' + req.body.val + '\n', function (err) {
+      fs.appendFile(__dirname+'/reports/'+req.body.empID+'_manager.txt',req.body.header + ': ' + req.body.val + '\n', function (err) {
       if (err) throw err;
       console.log('File is created and data is appended successfully.');
     }); 
@@ -189,7 +176,7 @@ app.post('/summary',function(req, res, next) {
 
 	console.log(req.body);
 
-	 fs.writeFile(req.body.empID+'.json', JSON.stringify(req.body), function (err) {
+	 fs.writeFile(__dirname+'/reports/'+req.body.empID+'.json', JSON.stringify(req.body), function (err) {
   		if (err) throw err;
   		console.log('File is created successfully.');
  }); 

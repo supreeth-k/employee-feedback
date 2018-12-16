@@ -13,11 +13,6 @@ window.teamAndCollab = function() {
     }
     teamAndCollabqs.push(val);
 
-
-    var userAction = JSON.parse(localStorage.getItem('userAction'));
-    var empDetails = JSON.parse(localStorage.getItem('empDetails'));
-    var empId = empDetails.empId;
-       
     storeScore(i,val,'Team Work and Collaboration');
 
     $("#q" + i).replaceWith($('#q' + (i + 1)));
