@@ -4,16 +4,45 @@ window.displayPage = function(pageName) {
 
 }
 
+window.feedBackBy = function(userAction) {
+
+
+    var empDetails = JSON.parse(localStorage.getItem('empDetails'));
+    var userAction = JSON.parse(localStorage.getItem('userAction'));
+
+    var data = {
+        empID:empDetails.empId,
+        userAction:userAction 
+    }
+      $.ajax({
+            type: 'POST',
+            url: '/feedbackBy',
+            contentType: "application/json;charset=utf-8",
+            data:JSON.stringify(data),
+           
+            success: function(res){
+                console.log(res);
+            },
+            error:function(err) {
+                console.log(err);
+            }   
+        });
+}
+
+
+
 window.storeScore = function(i,val, titleStr) {
 
-var header;
+    var header;
  	var empDetails = JSON.parse(localStorage.getItem('empDetails'));
+    var userAction = JSON.parse(localStorage.getItem('userAction'));
 	
 	if(i == 1) {
 		
    	 var titleData = {
     	title: titleStr,
 		empID:empDetails.empId,
+        userAction:userAction
 	}
 	     $.ajax({
             type: 'POST',
@@ -40,6 +69,7 @@ var header;
         header:header,
         val:val,
         empID:empDetails.empId,
+        userAction:userAction
     }
         $.ajax({
             type: 'POST',
@@ -84,3 +114,36 @@ window.insertNewLine = function () {
         });
 
 }
+
+window.isFeedbackGiven = function (empId) {
+
+    var empDetails = JSON.parse(localStorage.getItem('empDetails'));
+    
+     var data = {
+        empID:empDetails.empId
+    }
+
+        $.ajax({
+            type: 'POST',
+            url: '/isFeedbackGiven',
+            contentType: "application/json;charset=utf-8",
+            data:JSON.stringify(data),
+           
+            success: function(res){
+                console.log(res);
+                if(res == 'Error') {
+                    alert("Feedback has already been given for this employee!")
+                    return;
+                }
+                else displayPage('teamAndCollab')
+            },
+            error:function(err) {
+                console.log(err);
+            }   
+        });
+
+}
+
+
+
+

@@ -13,6 +13,36 @@ $(function() {
 
 	$("#initQueries").click(function() {
 		userAction = $('input[name=initRadioButton]:checked').val();
+        localStorage.setItem('userAction', JSON.stringify(userAction));
+
+        if(userAction == 'evalSub') {
+
+        var subEmpId = $(".input-subEmpId").val();
+
+        var subEmpdata = {
+            subEmpId:subEmpId,
+            userAction:userAction
+        }
+
+         $.ajax({
+            type: 'POST',
+            url: '/employeeDetails',
+            data:JSON.stringify(subEmpdata),
+            contentType: "application/json;charset=utf-8",
+           
+            success: function(res){
+                 if(res == 'Error') {
+                    alert("Feedback has already been given for this employee!")
+                    return;
+                }
+                else location.href = location.href + 'html/teamAndCollab.html';
+            },
+            error:function(err) {
+                console.log(err);
+            }   
+        });
+    }
+        else {  
 			$.ajax({
             type: 'GET',
             url: '/employeeDetails/'+userAction,
@@ -25,6 +55,7 @@ $(function() {
                 console.log(err);
             }   
         });
+      }
 	})
 })
 

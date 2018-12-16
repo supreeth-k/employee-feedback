@@ -40,6 +40,12 @@
         </tr>
     </table>
 
+    <div class="row">
+        <div class="col-xs-6 offset-md-5">
+            <button class="btn btn-primary reportDownload"> Download the report of your subordinate</button>
+        </div>
+    </div>
+
 </body>
 
 </html>
@@ -121,7 +127,7 @@
         console.log(userAction);
         var empId = empDetails.empId;
 
-
+    if(userAction === 'evalSelf') {
         $.ajax({
             type: 'POST',
             url: window.location.origin+'/summary',
@@ -134,7 +140,43 @@
             error:function(err) {
                 console.log(err);
             }   
-        });     
+        });
+    }
+    else if(userAction === 'evalSub') {
+        $.ajax({
+            type: 'POST',
+            url: window.location.origin+'/summary',
+            contentType: "application/json;charset=utf-8",
+            data:JSON.stringify(scores),
+           
+            success: function(res){
+                console.log(res);
+
+            },
+            error:function(err) {
+                console.log(err);
+            }   
+        });
+    }
+
+            $('.reportDownload').click(function() {
+                 $.ajax({
+                    type: 'GET',
+                    url: window.location.origin+'/download/'+empId,
+                    contentType: "application/json;charset=utf-8",
+
+                    success:function(res) {
+
+                        window.location = window.location.origin+'/download/'+empId;
+                        console.log(res);
+                    },
+                     error:function(err) {
+                        console.log(err);
+                    } 
+                });
+
+            })
+                
      
 });
     

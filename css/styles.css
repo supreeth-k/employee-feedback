@@ -212,6 +212,9 @@ input[name = "subEmpId"]:active {
     outline:none;
 }
 
+.reportDownload {
+    margin-top: 20px;
+}
 
 .input-subEmpId{
     border-top: none;

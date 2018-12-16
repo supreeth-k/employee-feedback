@@ -43,6 +43,7 @@ window.evalEmpDetails = function() {
         return;
     } else {
         localStorage.setItem('empDetails', JSON.stringify(empDetails));
-        displayPage('teamAndCollab')
+        isFeedbackGiven(empDetails.empId);
+        
     }
 }

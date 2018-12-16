@@ -24,7 +24,16 @@ window.deliveryCalc = function() {
         for (var z in deliveryQs) { deliveryScore += deliveryQs[z]; }
         localStorage.setItem('deliveryScore', deliveryScore);
         $(".butn-teamAndCollab").css('display', 'none');
-        displayPage('summary');
+
+      var userAction = JSON.parse(localStorage.getItem('userAction'));
+
+      if(userAction == 'evalSelf') {
+         displayPage('summary');
+      }
+      else {
+        displayPage('summaryMgr');
+      }
+       
     }
 
 }
