@@ -32,8 +32,6 @@ window.feedBackBy = function(userAction) {
         });
 }
 
-
-
 window.storeScore = function(i,val, titleStr) {
 
     var header;
@@ -138,6 +136,9 @@ window.isFeedbackGiven = function (empId) {
                 if(res == 'Error') {
                     alert("Feedback has already been given for this employee!")
                     return;
+                }
+                else if(res == 'Empty') {
+                    alert('The employee ID you have entered is invalid. Please enter the correct ID');
                 }
                 else displayPage('teamAndCollab')
             },

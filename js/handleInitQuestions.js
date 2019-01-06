@@ -41,6 +41,10 @@ $(function() {
                     alert("The subordinate you're evaluating hasn't given his feedback yet. Please try later")
                     return;
                 }
+                else if(res == 'Empty') {
+                    alert('The employee ID you have entered is invalid. Please enter the correct ID');
+                    return;
+                }
                 else location.href = location.href + 'html/teamAndCollab.html';
             },
             error:function(err) {

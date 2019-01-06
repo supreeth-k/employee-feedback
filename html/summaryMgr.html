@@ -42,7 +42,7 @@
 
     <div class="row">
         <div class="col-xs-6 offset-md-5">
-            <button class="btn btn-primary reportDownload"> Download the report of your subordinate</button>
+            <button class="btn btn-primary reportDownload"> Download the comparison feedback report</button>
         </div>
     </div>
 
@@ -165,16 +165,13 @@
                     contentType: "application/json;charset=utf-8",
 
                     success:function(res) {
-
                         window.location = window.location.origin+'/download/'+empId;
-                        console.log(res);
                         window.localStorage.clear();
                     },
                      error:function(err) {
                         console.log(err);
                     } 
                 });
-
     })
                 
      

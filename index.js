@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var mysql = require('mysql');
 var concat = require('concat-files');
 var fs = require('fs');
+var concat = require('concat-files');
 
 var exphbs  = require('express-handlebars');
 var app = express();
@@ -61,9 +62,20 @@ app.post('/isFeedbackGiven', function(req, res, next) {
 	var loggedIn = 1;
     var connection = get_connection();
     connection.query(stmt,empId,function(error, results, fields){
-            if(results[0].emp_self === 0) {
+
+        if(results.length == 0) {
+          console.log(results.length);
+            res.send('Empty');
+            return;
+        }
+        else if(results[0].emp_self === 0) {
             	console.log(results[0].emp_self, 'results[0].emp_self');
             	connection.query(stmt1,[loggedIn,empId], function(error, result, fields) {
+
+        fs.appendFile(__dirname+'/reports/'+empId+'.txt', "Employee's feedback:" + '\n\n', function (err) {
+              if (err) throw err;
+              console.log("Employee's feedback is appended successfully.");
+      }); 
             		console.log(result);
             		res.render('employeeDetails');
             		console.log(empId, loggedIn);
@@ -84,13 +96,20 @@ app.post('/employeeDetails', function(req, res, next) {
   var loggedIn = 1;
     var connection = get_connection();
     connection.query(stmt,subEmpId,function(error, results, fields){
-            if(results[0].emp_self === 1 && results[0].emp_mgr === 0) {
+
+          if(results.length == 0) {
+            res.send('Empty');
+          }
+           else if(results[0].emp_self === 1 && results[0].emp_mgr === 0) {
               console.log(results[0].emp_self, 'results[0].emp_self');
               console.log(results[0].emp_mgr, 'results[0].emp_mgr');
               connection.query(stmt1,[loggedIn,subEmpId], function(error, result, fields) {
-                //console.log(result);
+
+      fs.appendFile(__dirname+'/reports/'+subEmpId+'_manager.txt', '\n\n' + "Manager's feedback:" + '\n\n', function (err) {
+              if (err) throw err;
+              console.log("Manager's feedback is appended successfully.");
+      }); 
                 res.send('abc');
-                //console.log(subEmpId, loggedIn);
             });
            }
             else if (results[0].emp_mgr === 1) {
@@ -111,7 +130,7 @@ app.post('/insertTitle',function(req, res, next) {
 	console.log(req.body.title);
   if(req.body.userAction == 'evalSelf') {
     console.log(__dirname);
-      fs.appendFile(__dirname+'/reports/'+req.body.empID+'.txt','\n \n' + req.body.title + ':' + '\n \n', function (err) {
+      fs.appendFile(__dirname+'/reports/'+req.body.empID+'.txt','\n\n' + req.body.title + ':' + '\n \n', function (err) {
       if (err) throw err;
       console.log('Title is appended successfully.');
   }); 
@@ -121,7 +140,7 @@ app.post('/insertTitle',function(req, res, next) {
 
       console.log(req.body.empID, 'insertTitle');
 
-        fs.appendFile(__dirname+'/reports/'+req.body.empID+'_manager.txt','\n \n' + req.body.title + ':' + '\n \n', function (err) {
+        fs.appendFile(__dirname+'/reports/'+req.body.empID+'_manager.txt','\n\n' + req.body.title + ':' + '\n \n', function (err) {
         if (err) throw err;
         console.log('Title is appended successfully.');
     }); 
@@ -157,7 +176,7 @@ app.get('/download/:id', function(req, res){
 
   var empId = req.params.id;
   console.log(empId);
-  var file = __dirname + '/reports/'+empId+'.txt';
+  var file = __dirname + '/reports/'+empId+'-comparison.txt';
   console.log(file, 'fileName');
   res.download(file);
 });
@@ -173,6 +192,20 @@ app.post('/newLine',function(req, res, next) {
 });
 
 app.post('/summary',function(req, res, next) {
+
+  var emp = req.body.empID+'.txt'
+  var mgr = req.body.empID+'_manager.txt'
+
+   var empN = req.body.empID;
+
+  concat([
+    __dirname+'/reports/'+emp,
+    __dirname+'/reports/'+mgr,
+  ], __dirname+'/reports/'+empN+'-comparison.txt', function(err) {
+    if (err) throw err
+    console.log('done');
+  });
+
 
 	console.log(req.body);
 
